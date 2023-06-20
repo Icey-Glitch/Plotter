@@ -1,10 +1,10 @@
-name: Rust Action
+name: Rust Build
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -26,7 +26,9 @@ jobs:
       with:
         toolchain: stable
         override: true
-    - name: Build and run Rust code
+    - name: Build Rust code
       run: |
         cargo build --verbose
+    - name: Run Rust code
+      run: |
         cargo run
